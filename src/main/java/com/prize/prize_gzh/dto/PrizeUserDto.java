@@ -22,22 +22,19 @@ public class PrizeUserDto {
     /**
      *用户电话
      */
-    @Pattern(regexp="^1(3|4|5|7|8|9)\\d{9}$",message="手机号码格式错误！")
     private String userPhone;
     /**
      *用户名称
      */
-    @NotBlank(message = "联系姓名不能为空！")
     private String userName;
     /**
      *用户地址
      */
-    @NotBlank(message = "联系姓名不能为空！")
     private String userAddress;
     /**
      *是否得将，0：否、1：是、默认0
      */
-    private String isAward;
+    private String isAward = "0";
     /**
      *奖品ID
      */
@@ -45,10 +42,9 @@ public class PrizeUserDto {
     /**
      *奖品名字
      */
-    @NotBlank(message = "联系姓名不能为空！")
     private String awardName;
     /**
      *添加时间
      */
-    private Date addDate;
+    private Date addDate = new Date();
 }

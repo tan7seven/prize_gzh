@@ -3,6 +3,7 @@ package com.prize.prize_gzh.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "prize_user")
-public class PrizeUserEntity {
+public class PrizeUserEntity implements Serializable {
     /**
      * 编号
      */
@@ -57,5 +58,5 @@ public class PrizeUserEntity {
      *添加时间
      */
     @Column(name = "add_date")
-    private Date addDate;
+    private Date addDate = new Date();
 }

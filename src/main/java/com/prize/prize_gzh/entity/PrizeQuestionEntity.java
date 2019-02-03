@@ -1,8 +1,11 @@
 package com.prize.prize_gzh.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 答题信息
@@ -10,7 +13,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "prize_question")
-public class PrizeQuestionEntity {
+public class PrizeQuestionEntity implements Serializable {
     /**
      * 编号
      */
@@ -21,6 +24,7 @@ public class PrizeQuestionEntity {
      * 题目
      */
     @Column
+    @JSONField(name = "topic_name")
     private String title;
     /**
      * 选项A
@@ -47,4 +51,15 @@ public class PrizeQuestionEntity {
      */
     @Column(length = 1)
     private String answer;
+    /**
+     * 类型：0单选、1多选
+     */
+    @Column(length = 1)
+    private String type;
+    /**
+     * 答案分录
+     */
+    @Transient
+    @JSONField(name = "topic_answer")
+    protected List<PrizeAnswerEntry> topicAnswer;
 }

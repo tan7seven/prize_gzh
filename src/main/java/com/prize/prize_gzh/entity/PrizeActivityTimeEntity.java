@@ -3,6 +3,7 @@ package com.prize.prize_gzh.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,8 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "prize_activity_time")
-public class PrizeActivityTimeEntity {
+public class PrizeActivityTimeEntity implements Serializable {
+
     /**
      * 编号
      */

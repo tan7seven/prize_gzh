@@ -2,6 +2,7 @@ package com.prize.prize_gzh.service.impl;
 
 import com.prize.prize_gzh.dto.PrizeUserDto;
 import com.prize.prize_gzh.entity.PrizeUserEntity;
+import com.prize.prize_gzh.mapper.PrizeUserMapper;
 import com.prize.prize_gzh.repository.PrizeUserRepository;
 import com.prize.prize_gzh.service.PrizeUserService;
 import org.apache.commons.lang3.StringUtils;
@@ -20,9 +21,22 @@ public class PrizeUserServiceImpl implements PrizeUserService {
     @Autowired
     private PrizeUserRepository prizeUserRepository;
 
+    @Autowired
+    private PrizeUserMapper prizeUserMapper;
+
+    @Override
+    public PrizeUserEntity getByOpenid(String openid) {
+        return prizeUserMapper.getByOpenid(openid);
+    }
+
     @Override
     public PrizeUserEntity add(PrizeUserEntity entity) {
         return prizeUserRepository.save(entity);
+    }
+
+    @Override
+    public int update(PrizeUserDto dto) {
+        return prizeUserMapper.updateUser(dto);
     }
 
     @Override
