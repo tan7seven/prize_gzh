@@ -14,7 +14,7 @@ public interface PrizeActivityTimeMapper {
      * @return
      */
     @Select("SELECT id, start_time, end_time, prize_sum, remain_number from prize_activity_time where start_time < #{nowTime} AND END_time > #{nowTime} ORDER BY start_time ASC")
-    List<PrizeActivityTimeEntity> find(String nowTime);
+    List<PrizeActivityTimeEntity> find(@Param("nowTime") String nowTime);
 
     /**
      * 根据主键修改剩余数量

@@ -43,7 +43,7 @@ public class PrizeUserEntity implements Serializable {
      *是否得将，0：否、1：是、默认0
      */
     @Column(length = 1, name = "is_award")
-    private String isAward;
+    private String isAward = "0";
     /**
      *奖品ID
      */

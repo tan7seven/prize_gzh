@@ -47,7 +47,7 @@ public class UserController extends BaseController{
             openid = "ceShi";
         }
         PrizeUserEntity oldUser = prizeUserService.getByOpenid(openid);
-        if(null != oldUser){entity.setOpenid(openid);
+        if(null == oldUser){entity.setOpenid(openid);
             prizeUserService.add(entity);
             return  new JsonResponse(1,"新增成功！").toJSONString();
         }

@@ -11,6 +11,9 @@ import java.util.Date;
  */
 @Data
 public class PrizeUserDto {
+
+    public static final String NOT_AWARD="0";
+    public static final String IS_AWARD="1";
     /**
      * 编号
      */

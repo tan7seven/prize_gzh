@@ -15,24 +15,16 @@ public class JsonResponse implements Serializable {
         this.code = 0;
     }
 
-    public JsonResponse(int result, String msg, Serializable data) {
-        this.code = result;
+    public JsonResponse(int code, String msg, Serializable data) {
+        this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public JsonResponse(int result, String msg) {
-        this.code = result;
+    public JsonResponse(int code, String msg) {
+        this.code = code;
         this.msg = msg;
         this.data = null;
-    }
-
-    public int getResult() {
-        return code;
-    }
-
-    public void setResult(int result) {
-        this.code = result;
     }
 
     public String getMsg() {
