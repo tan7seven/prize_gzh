@@ -1,5 +1,6 @@
 package com.prize.prize_gzh.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
@@ -9,13 +10,13 @@ public class JsonResponse implements Serializable {
 
     private int code; // 返回码，通常0代表无错误，其它正整数值表示出现错误
     private String msg; // 通知最终用户的描述文字，直接展示给用户
-    private Serializable data; // 附加的数据对象，需要实现可序列化接口，常用的如String等直接传进来即可
+    private Object data; // 附加的数据对象，需要实现可序列化接口，常用的如String等直接传进来即可
 
     public JsonResponse() {
         this.code = 0;
     }
 
-    public JsonResponse(int code, String msg, Serializable data) {
+    public JsonResponse(int code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
@@ -35,11 +36,11 @@ public class JsonResponse implements Serializable {
         this.msg = msg;
     }
 
-    public Serializable getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(Serializable data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

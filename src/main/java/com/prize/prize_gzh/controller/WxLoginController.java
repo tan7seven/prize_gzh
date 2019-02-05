@@ -3,7 +3,9 @@ package com.prize.prize_gzh.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.prize.prize_gzh.dto.WxCheckDto;
 import com.prize.prize_gzh.httpUtils.HttpUtil;
+import com.prize.prize_gzh.utils.JsonResponse;
 import com.prize.prize_gzh.utils.WxCheckUtil;
+import org.hibernate.validator.constraints.pl.REGON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -38,9 +40,9 @@ public class WxLoginController extends BaseController {
      * @return
      */
     @ResponseBody
-    @GetMapping(value = "/sendMsgLogin.do")
+    @GetMapping(value = "/getOpenid.do")
     protected void sendMsgLogin() throws IOException {
-        String backUrl = WxCheckUtil.BACK_URL+"/wxLogin/sendMsgCallBack.do";
+        String backUrl = WxCheckUtil.BACK_URL+"/wxLogin/callBack.do";
         String url = WxCheckUtil.getCode(backUrl, WxCheckUtil.SCOPE_BASE);
         response.sendRedirect(url);
     }
@@ -50,7 +52,7 @@ public class WxLoginController extends BaseController {
      * @param code
      * @return
      */
-    @RequestMapping(value = "/sendMsgCallBack.do")
+    @RequestMapping(value = "/callBack.do")
     protected String sendMsgCallBack(String code, Model model) throws IOException {
         String url = WxCheckUtil.codeToAccessToken(code);
         JSONObject resEntity = HttpUtil.doGetJson(url);
@@ -59,6 +61,7 @@ public class WxLoginController extends BaseController {
         if (null == openid){
             return "openidMiss";
         }
-        return "sendMsg";
+        this.request.getSession().setAttribute("openid",openid);
+        return "index";
     }
 }

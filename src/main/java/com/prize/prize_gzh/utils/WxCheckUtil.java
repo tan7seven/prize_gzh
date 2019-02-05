@@ -42,7 +42,7 @@ public class WxCheckUtil {
     /**
      * 微信网页授权域名
      */
-    public static final String BACK_URL = "http://www.fujianshunfengche.cn";
+    public static final String BACK_URL = "http://hd.icangjiang.com";
     /**
      * 不弹出授权页面，直接跳转，只能获取用户openid
      */

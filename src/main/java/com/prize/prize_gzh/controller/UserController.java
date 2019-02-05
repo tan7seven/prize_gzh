@@ -69,9 +69,9 @@ public class UserController extends BaseController{
         dto.setOpenid(openid);
         int flag = prizeUserService.update(dto);
         if(flag > 0){
-            return new JsonResponse(1, "更新成功！").toJSONString();
+            return new JsonResponse(0, "更新成功！").toJSONString();
         }else{
-            return new JsonResponse(0, "更新失败！").toJSONString();
+            return new JsonResponse(1, "更新失败！").toJSONString();
         }
     }
     /**
@@ -86,5 +86,8 @@ public class UserController extends BaseController{
     protected List<PrizeUserEntity> queryUser(PrizeUserDto dto,Integer rows, Integer page){
         return prizeUserService.getPage(rows, page, dto).getContent();
     }
-
+    @RequestMapping("/index.do")
+    protected  String index(){
+        return "index";
+    }
 }
