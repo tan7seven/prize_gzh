@@ -43,7 +43,7 @@ public class PrizeTypeController extends BaseController {
         }
         PrizeUserEntity oldUser = prizeUserService.getByOpenid(openid);
         if(null != oldUser){
-            return  new JsonResponse(2,"不能重复抽奖！").toJSONString();
+            return  new JsonResponse(2,"不能重复参与活动！").toJSONString();
         }
         PrizeUserEntity entity = new PrizeUserEntity();
         entity.setOpenid(openid);
@@ -58,13 +58,10 @@ public class PrizeTypeController extends BaseController {
         for (PrizeTypeEntity type:prizes) {
             if(db <= type.getProbability() &&
                     type.getRemainNumber() > 0 &&
-                    activities.size() > 0 &&
-                    activities.get(0).getRemainNumber()>0){
+                    activities.size() > 0){
                 type.setRemainNumber(type.getRemainNumber()-1);
-                activities.get(0).setRemainNumber( activities.get(0).getRemainNumber()-1);
                 int flag1 = prizeTypeService.modify(type);
-                int flag2 = prizeActivityTimeService.modify( activities.get(0));
-                if(flag1 > 0 && flag2 > 0){
+                if(flag1 > 0){
                     PrizeUserDto dto = new PrizeUserDto();
                     dto.setOpenid(openid);
                     dto.setIsAward(PrizeUserDto.IS_AWARD);
@@ -75,6 +72,6 @@ public class PrizeTypeController extends BaseController {
                 }
             }
         }
-        return new JsonResponse(1,"没有中奖").toJSONString();
+        return new JsonResponse(1,"很遗憾，没有中奖").toJSONString();
     }
 }

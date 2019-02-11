@@ -16,10 +16,4 @@ public interface PrizeActivityTimeService {
      */
     List<PrizeActivityTimeEntity> getActivityTime(String noeTime);
 
-    /**
-     * 修改
-     * @param entity
-     * @return
-     */
-    int modify(PrizeActivityTimeEntity entity) throws Exception;
 }

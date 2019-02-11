@@ -30,14 +30,4 @@ public class PrizeActivityTimeEntity implements Serializable {
      */
     @Column(name = "end_time")
     private Date endTime;
-    /**
-     *  奖品总数
-     */
-    @Column(name = "prize_sum")
-    private Integer prizeSum;
-    /**
-     *  奖品剩余数量
-     */
-    @Column(name = "remain_number")
-    private Integer remainNumber;
 }

@@ -23,16 +23,4 @@ public class PrizeActivityTimeServiceImpl implements PrizeActivityTimeService {
         return prizeActivityTimeMapper.find(noeTime);
     }
 
-    @Override
-    public int modify(PrizeActivityTimeEntity entity) throws Exception {
-        if(null == entity.getId()){
-            logger.error("==》    修改活动时间异常：id为空！");
-            throw new Exception("==》    修改活动时间异常：id为空！");
-        }
-        if(null == entity.getRemainNumber()){
-            logger.error("==》    修改活动时间异常：剩余数量为空！");
-            throw new Exception("==》    修改活动时间异常：剩余数量为空！");
-        }
-        return prizeActivityTimeMapper.modify(entity);
-    }
 }

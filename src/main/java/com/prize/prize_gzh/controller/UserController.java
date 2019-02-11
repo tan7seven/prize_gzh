@@ -1,5 +1,6 @@
 package com.prize.prize_gzh.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.prize.prize_gzh.dto.PrizeUserDto;
 import com.prize.prize_gzh.entity.PrizeUserEntity;
 import com.prize.prize_gzh.service.PrizeUserService;
@@ -55,13 +56,31 @@ public class UserController extends BaseController{
     }
 
     /**
+     * 查询用户是否中奖
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getUserMsg.do")
+    protected String getUserMsg(){
+        String openid = (String) this.request.getSession().getAttribute("openid");
+        if(StringUtils.isBlank(openid)){
+            openid = "ceShi";
+        }
+        PrizeUserEntity user = prizeUserService.getByOpenid(openid);
+        if(PrizeUserDto.IS_AWARD.equals(user.getIsAward())){
+            return new JsonResponse(0,"您已经中奖!", JSONObject.toJSON(user)).toJSONString();
+        }else {
+            return new JsonResponse(1,"很遗憾，没有中奖!", JSONObject.toJSON(user)).toJSONString();
+        }
+    }
+    /**
      * 更新用户信息
      * @param dto
      * @return
      */
     @ResponseBody
     @RequestMapping("/updateUser.do")
-    protected String updateUser(@RequestBody PrizeUserDto dto){
+    protected String updateUser( PrizeUserDto dto){
         String openid = (String) this.request.getSession().getAttribute("openid");
         if(StringUtils.isBlank(openid)){
             openid = "ceShi";
@@ -69,9 +88,9 @@ public class UserController extends BaseController{
         dto.setOpenid(openid);
         int flag = prizeUserService.update(dto);
         if(flag > 0){
-            return new JsonResponse(0, "更新成功！").toJSONString();
+            return new JsonResponse(0, "提交成功！").toJSONString();
         }else{
-            return new JsonResponse(1, "更新失败！").toJSONString();
+            return new JsonResponse(1, "提交失败！").toJSONString();
         }
     }
     /**
@@ -90,4 +109,5 @@ public class UserController extends BaseController{
     protected  String index(){
         return "index";
     }
+
 }
