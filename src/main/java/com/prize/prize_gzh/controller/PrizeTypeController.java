@@ -38,6 +38,7 @@ public class PrizeTypeController extends BaseController {
     @RequestMapping(value = "/getPrize.do")
     protected String getPrize() throws Exception {
         String openid = (String) this.request.getSession().getAttribute("openid");
+
         if(StringUtils.isBlank(openid)){
             openid = "ceShi";
         }
