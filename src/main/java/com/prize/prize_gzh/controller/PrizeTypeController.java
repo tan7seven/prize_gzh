@@ -68,7 +68,7 @@ public class PrizeTypeController extends BaseController {
                     dto.setIsAward(PrizeUserDto.IS_AWARD);
                     dto.setAwardId(type.getId());
                     dto.setAwardName(type.getPrizeName());
-                    prizeUserService.update(dto);
+                    prizeUserService.updateUserAward(dto);
                     return new JsonResponse(0,"恭喜中奖", JSONObject.toJSON(type)).toJSONString();
                 }
             }

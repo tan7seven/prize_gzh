@@ -21,4 +21,10 @@ public interface PrizeUserMapper {
             "user_address = #{dto.userAddress} " +
             " where openid = #{dto.openid}")
     int updateUser(@Param("dto") PrizeUserDto dto);
+    @Update("UPDATE prize_user SET " +
+            "is_award = #{dto.isAward}, " +
+            "award_id = #{dto.awardId}, " +
+            "award_name = #{dto.awardName} " +
+            " where openid = #{dto.openid}")
+    int updateUserAward(@Param("dto") PrizeUserDto dto);
 }

@@ -40,6 +40,11 @@ public class PrizeUserServiceImpl implements PrizeUserService {
     }
 
     @Override
+    public int updateUserAward(PrizeUserDto dto) {
+        return prizeUserMapper.updateUserAward(dto);
+    }
+
+    @Override
     public Page<PrizeUserEntity> getPage(Integer rows, Integer page, PrizeUserDto dto) {
         Pageable pageable = new PageRequest(page-1, rows, Sort.Direction.DESC, "startTime");
         Page<PrizeUserEntity> pageInfo = prizeUserRepository.findAll((Specification<PrizeUserEntity>) (root, query, criteriaBuilder) -> {

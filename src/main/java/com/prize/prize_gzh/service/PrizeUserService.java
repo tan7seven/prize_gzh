@@ -28,6 +28,12 @@ public interface PrizeUserService {
      */
     int update(PrizeUserDto dto);
     /**
+     * 更新奖品信息
+     * @param dto
+     * @return
+     */
+    int updateUserAward(PrizeUserDto dto);
+    /**
      * 分页查询
      * @param rows
      * @param page
