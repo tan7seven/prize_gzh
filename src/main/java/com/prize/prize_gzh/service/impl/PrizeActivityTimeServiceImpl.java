@@ -23,4 +23,9 @@ public class PrizeActivityTimeServiceImpl implements PrizeActivityTimeService {
         return prizeActivityTimeMapper.find(noeTime);
     }
 
+    @Override
+    public PrizeActivityTimeEntity findByGroup(Integer activityGroup) {
+        return prizeActivityTimeMapper.findByGroup(activityGroup);
+    }
+
 }

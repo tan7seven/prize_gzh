@@ -30,4 +30,9 @@ public class PrizeActivityTimeEntity implements Serializable {
      */
     @Column(name = "end_time")
     private Date endTime;
+    /**
+     * 活动分组
+     */
+    @Column(name = "activity_group")
+    private Integer activityGroup;
 }

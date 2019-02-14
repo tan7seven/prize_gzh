@@ -1,7 +1,9 @@
 package com.prize.prize_gzh.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.prize.prize_gzh.entity.PrizeActivityTimeEntity;
 import com.prize.prize_gzh.entity.PrizeUserEntity;
+import com.prize.prize_gzh.service.PrizeActivityTimeService;
 import com.prize.prize_gzh.service.PrizeQuestionService;
 import com.prize.prize_gzh.service.PrizeUserService;
 import com.prize.prize_gzh.utils.JsonResponse;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/question")
@@ -25,6 +28,9 @@ public class QuestionController extends BaseController{
 
     @Resource(name = "prizeUserService")
     private PrizeUserService prizeUserService;
+
+    @Resource(name = "prizeActivityTimeService")
+    private PrizeActivityTimeService prizeActivityTimeService;
 
     /**
      * 随机获取题目
@@ -48,7 +54,13 @@ public class QuestionController extends BaseController{
             logger.error("==》   随机获取题目信息异常：num为空");
             throw new Exception("==》   随机获取题目信息异常：num为空");
         }
-
+        PrizeActivityTimeEntity entity = prizeActivityTimeService.findByGroup(1);
+        if(entity.getStartTime().getTime() > new Date().getTime()){
+            return new JsonResponse(2, "活动尚未开始！",JSONObject.toJSON(prizeQuestionService.getRand(num))).toJSONString();
+        }
+        if(entity.getEndTime().getTime() < new Date().getTime()){
+            return new JsonResponse(3, "活动尚已结束！",JSONObject.toJSON(prizeQuestionService.getRand(num))).toJSONString();
+        }
         return new JsonResponse(0, "获取成功",JSONObject.toJSON(prizeQuestionService.getRand(num))).toJSONString();
     }
 }

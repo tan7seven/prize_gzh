@@ -8,10 +8,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.prize.prize_gzh.utils.UtilBean.byteToHex;
+import static com.prize.prize_gzh.utils.UtilBean.createNonceStr;
+import static com.prize.prize_gzh.utils.UtilBean.createTimestamp;
 
 /**
  * 微信接口工具类
@@ -43,6 +50,7 @@ public class WxCheckUtil {
      * 微信网页授权域名
      */
     public static final String BACK_URL = "http://hd.icangjiang.com";
+//    public static final String BACK_URL = "localhost:8077";
     /**
      * 不弹出授权页面，直接跳转，只能获取用户openid
      */
@@ -120,10 +128,17 @@ public class WxCheckUtil {
                 "grant_type=client_credential" +
                 "&appid=" + APP_ID +
                 "&secret="+ APP_SECRET;
-        JSONObject resAccessToken = HttpUtil.doGetJson(url);
-        return resAccessToken;
+        JSONObject atJson = HttpUtil.doGetJson(url);
+        logger.info("==》    AccessToken="+JSONObject.toJSONString(atJson));
+        return atJson;
     }
-
+    //获取ticket
+    public static JSONObject getJsApiTicket(String accessToken) throws IOException {
+        String apiTicketUrl = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi";
+        String requestUrl = apiTicketUrl.replace("ACCESS_TOKEN", accessToken);
+        JSONObject result = HttpUtil.doGetJson(requestUrl);
+        return result;
+    }
     /**
      * 客户消息URL
      * @return
@@ -153,5 +168,48 @@ public class WxCheckUtil {
         paramMap.put("text", textMap);
         textMap.put("content", msg);
         return HttpUtil.sendPostJson(urlServiceInfo,JSONObject.toJSONString(paramMap),headerMap);
+    }
+    //生成微信权限验证的参数
+    public static Map<String, String> makeWXTicket(String jsApiTicket, String url) {
+        Map<String, String> ret = new HashMap<String, String>();
+        String nonceStr = (String) createNonceStr();
+        String timestamp = createTimestamp();
+        String string1;
+        String signature = "";
+
+        //注意这里参数名必须全部小写，且必须有序
+        string1 = "jsapi_ticket=" + jsApiTicket +
+                "&noncestr=" + nonceStr +
+                "&timestamp=" + timestamp +
+                "&url=" + url;
+        try
+        {
+            MessageDigest crypt = MessageDigest.getInstance("SHA-1");
+            crypt.reset();
+            crypt.update(string1.getBytes("UTF-8"));
+            signature = byteToHex(crypt.digest());
+            logger.info("signature=====>"+signature);
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            logger.error("WeChatController.makeWXTicket=====Start");
+            logger.error(e.getMessage(),e);
+            logger.error("WeChatController.makeWXTicket=====End");
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            logger.error("WeChatController.makeWXTicket=====Start");
+            logger.error(e.getMessage(),e);
+            logger.error("WeChatController.makeWXTicket=====End");
+        }
+
+        ret.put("url", url);
+        ret.put("jsapi_ticket", jsApiTicket);
+        ret.put("nonceStr", nonceStr);
+        ret.put("timestamp", timestamp);
+        ret.put("signature", signature);
+        ret.put("appid", APP_ID);
+
+        return ret;
     }
 }

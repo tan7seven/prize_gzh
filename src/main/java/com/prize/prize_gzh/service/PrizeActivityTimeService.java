@@ -16,4 +16,11 @@ public interface PrizeActivityTimeService {
      */
     List<PrizeActivityTimeEntity> getActivityTime(String noeTime);
 
+    /**
+     * 根据活动分组获取活动时间
+     * @param activityGroup
+     * @return
+     */
+    PrizeActivityTimeEntity findByGroup(Integer activityGroup);
+
 }
