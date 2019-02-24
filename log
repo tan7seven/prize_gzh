@@ -175,3 +175,68 @@
 2019-02-14 14:22:01.699  INFO 6804 --- [restartedMain] o.s.b.web.embedded.jetty.JettyWebServer  : Jetty started on port(s) 8077 (http/1.1) with context path '/'
 2019-02-14 14:22:01.700  INFO 6804 --- [restartedMain] com.prize.prize_gzh.PrizeGzhApplication  : Started PrizeGzhApplication in 1.057 seconds (JVM running for 559.039)
 2019-02-14 14:22:01.701  INFO 6804 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-02-14 16:18:39.874  INFO 2816 --- [main] c.p.prize_gzh.PrizeGzhApplicationTests   : Starting PrizeGzhApplicationTests on xxb-java-250-37 with PID 2816 (started by Administrator in E:\WJZ\prize_gzh)
+2019-02-14 16:18:39.875  INFO 2816 --- [main] c.p.prize_gzh.PrizeGzhApplicationTests   : No active profile set, falling back to default profiles: default
+2019-02-14 16:18:40.370  INFO 2816 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-14 16:18:40.454  INFO 2816 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78ms. Found 2 repository interfaces.
+2019-02-14 16:18:40.746  INFO 2816 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$67de47e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-14 16:18:40.899  INFO 2816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-14 16:18:41.620  INFO 2816 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-14 16:18:41.671  INFO 2816 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-14 16:18:41.718  INFO 2816 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-14 16:18:41.719  INFO 2816 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-14 16:18:41.827  INFO 2816 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-14 16:18:41.933  INFO 2816 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-02-14 16:18:42.687  INFO 2816 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-14 16:18:43.498  INFO 2816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-14 16:18:43.541  WARN 2816 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-14 16:18:43.682  INFO 2816 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-02-14 16:18:43.859  INFO 2816 --- [main] c.p.prize_gzh.PrizeGzhApplicationTests   : Started PrizeGzhApplicationTests in 4.176 seconds (JVM running for 4.826)
+2019-02-14 16:18:43.998  INFO 2816 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-14 16:18:43.999  INFO 2816 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-14 16:18:44.001  INFO 2816 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-14 16:18:44.227  INFO 2816 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-14 16:34:40.331  INFO 2640 --- [restartedMain] com.prize.prize_gzh.PrizeGzhApplication  : Starting PrizeGzhApplication on xxb-java-250-37 with PID 2640 (E:\WJZ\prize_gzh\target\classes started by Administrator in E:\WJZ\prize_gzh)
+2019-02-14 16:34:40.334  INFO 2640 --- [restartedMain] com.prize.prize_gzh.PrizeGzhApplication  : No active profile set, falling back to default profiles: default
+2019-02-14 16:34:40.389  INFO 2640 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-02-14 16:34:40.389  INFO 2640 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-02-14 16:34:41.026  INFO 2640 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-14 16:34:41.099  INFO 2640 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66ms. Found 2 repository interfaces.
+2019-02-14 16:34:41.444  INFO 2640 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c20b64ae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-14 16:34:41.618  INFO 2640 --- [restartedMain] org.eclipse.jetty.util.log               : Logging initialized @2207ms to org.eclipse.jetty.util.log.Slf4jLog
+2019-02-14 16:34:41.847  INFO 2640 --- [restartedMain] o.s.b.w.e.j.JettyServletWebServerFactory : Server initialized with port: 8077
+2019-02-14 16:34:41.849  INFO 2640 --- [restartedMain] org.eclipse.jetty.server.Server          : jetty-9.4.12.v20180830; built: 2018-08-30T13:59:14.071Z; git: 27208684755d94a92186989f695db2d7b21ebc51; jvm 1.8.0_101-b13
+2019-02-14 16:34:41.955  INFO 2640 --- [restartedMain] org.eclipse.jetty.server.session         : DefaultSessionIdManager workerName=node0
+2019-02-14 16:34:41.955  INFO 2640 --- [restartedMain] org.eclipse.jetty.server.session         : No SessionScavenger set, using defaults
+2019-02-14 16:34:41.956  INFO 2640 --- [restartedMain] org.eclipse.jetty.server.session         : node0 Scavenging every 660000ms
+2019-02-14 16:34:41.964  INFO 2640 --- [restartedMain] o.e.j.s.h.ContextHandler.application     : Initializing Spring embedded WebApplicationContext
+2019-02-14 16:34:41.964  INFO 2640 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1574 ms
+2019-02-14 16:34:41.987  INFO 2640 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2019-02-14 16:34:41.989  INFO 2640 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-02-14 16:34:41.989  INFO 2640 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-02-14 16:34:41.989  INFO 2640 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2019-02-14 16:34:41.989  INFO 2640 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2019-02-14 16:34:41.993  INFO 2640 --- [restartedMain] o.e.jetty.server.handler.ContextHandler  : Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@12805dbd{application,/,[file:///C:/Users/Administrator/AppData/Local/Temp/jetty-docbase.4793721230359770346.8077/],AVAILABLE}
+2019-02-14 16:34:41.993  INFO 2640 --- [restartedMain] org.eclipse.jetty.server.Server          : Started @2582ms
+2019-02-14 16:34:42.130  INFO 2640 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-14 16:34:42.713  INFO 2640 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-14 16:34:42.755  INFO 2640 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-14 16:34:42.807  INFO 2640 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-14 16:34:42.808  INFO 2640 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-14 16:34:42.916  INFO 2640 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-14 16:34:43.042  INFO 2640 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-02-14 16:34:43.818  INFO 2640 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-14 16:34:43.835  INFO 2640 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-02-14 16:34:44.365  INFO 2640 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-14 16:34:44.408  WARN 2640 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-14 16:34:44.638  INFO 2640 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-02-14 16:34:44.783  INFO 2640 --- [restartedMain] o.e.j.s.h.ContextHandler.application     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-02-14 16:34:44.784  INFO 2640 --- [restartedMain] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-02-14 16:34:44.790  INFO 2640 --- [restartedMain] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-02-14 16:34:44.812  INFO 2640 --- [restartedMain] o.e.jetty.server.AbstractConnector       : Started ServerConnector@8fe441{HTTP/1.1,[http/1.1]}{0.0.0.0:8077}
+2019-02-14 16:34:44.813  INFO 2640 --- [restartedMain] o.s.b.web.embedded.jetty.JettyWebServer  : Jetty started on port(s) 8077 (http/1.1) with context path '/'
+2019-02-14 16:34:44.815  INFO 2640 --- [restartedMain] com.prize.prize_gzh.PrizeGzhApplication  : Started PrizeGzhApplication in 4.94 seconds (JVM running for 5.403)
